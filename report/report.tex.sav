@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{pseudocode}
+\usepackage{url}
+\usepackage[backref, colorlinks=true, citecolor=red, urlcolor=blue, pdfauthor={Jyh-Ming Lien}]{hyperref}
+\usepackage{subfigure}
+
+\newcommand{\handout}[5]{
+  \noindent
+  \begin{center}
+  \framebox{
+    \vbox{
+      \hbox to 5.78in { {\bf } \hfill #2 }
+      \vspace{4mm}
+      \hbox to 5.78in { {\Large \hfill #5  \hfill} }
+      \vspace{2mm}
+      \hbox to 5.78in { {\em #3 \hfill #4} }
+    }
+  }
+  \end{center}
+  \vspace*{4mm}
+}
+
+\newcommand{\lecture}[4]{\handout{#1}{#2}{#3}{}{Report for #1}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+
+% 1-inch margins, from fullpage.sty by H.Partl, Version 2, Dec. 15, 1988.
+\topmargin 0pt
+\advance \topmargin by -\headheight
+\advance \topmargin by -\headsep
+\textheight 8.9in
+\oddsidemargin 0pt
+\evensidemargin \oddsidemargin
+\marginparwidth 0.5in
+\textwidth 6.5in
+
+\parindent 0in
+\parskip 1.5ex
+%\renewcommand{\baselinestretch}{1.25}
+
+\begin{document}
+
+\lecture{Advance Algorithm Programming Assignment 1 }{Fall 2015}{Youngeun Lee}{---}
+
+
+\section{Implementation Details}
+The goal of this assignment is to compute Delaunay triangulation. I changed only Delaunay function in delanay.c. It has 3 steps as follow:
+\begin{enumerate}
+  \item Create points in 4D $(x,y,z,x^2+y^2+z^2)$
+  \item Compute convex hull in 4D by calling qhull
+  \item Project the lower convex hull into 3D
+\end{enumerate}
+I will explain each steps in details.
+
+The first step is very easy. The vertices of the input file are save in vertices. I made a pointer $(pt)$ of coordT and save the vertices and 4th coordinate.
+
+The program calls qhull to compute convex hull in 4D in the second step. I referred to $QHull()$ function in main.c. This function compute convex hull in 3D. The option for qull is "delaunay QJ Pp". The pointer pt is delivered to qhull by qh_init_B() function. The 3th component of qh_init_B() is 4 instead of 3 because I need to compute the convex hull in 4Ds.
+
+The third step is difficult and I took almost time
+   
+
+\section{Example Output}
+
+\section{Know bugs/limitations}
+
+\bibliographystyle{plain}
+\bibliography{report}
+
+\end{document}
+
+
