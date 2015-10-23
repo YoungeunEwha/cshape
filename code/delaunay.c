@@ -117,7 +117,7 @@ void	Delaunay( void )
 			MakeFace(tetra->vertex[2], tetra->vertex[0], tetra->vertex[3], NULL);
 		}
 	}
-
+	
 	//not used
 	free(pt);
 	free(all_v);

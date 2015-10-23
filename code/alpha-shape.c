@@ -108,7 +108,7 @@ void AlphaShape( unsigned int alpha )
 		//get the delaunay triangulation
 		if (facet->normal[3] < -1.0e-5 && abs(volume) > 1.0e-5) //normal direction for the new axis && volume
 		{
-			tetra = tetra = MakeNullTetra();
+			tetra = MakeNullTetra();
 
 			//get vertices of tetra
 			//loop through each vertex

@@ -172,13 +172,15 @@ void DrawVertices(tVertex vlist)
 {   
    tVertex  v;
    v = vlist;
-   
+   int i = 0; //Youngeun
+
    if(vlist==NULL) return;
 
    glBegin(GL_POINTS);
    do {                                 
 	  glVertex3dv(v->v);
       v = v->next;
+	  i++;
    } while ( v != vlist );
    glEnd();
 }
